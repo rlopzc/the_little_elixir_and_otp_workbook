@@ -1,24 +1,24 @@
-defmodule Exercises do
+defmodule Chapter2.Exercises do
   # 1.- Implement sum/1. This function should take in a list of numbers and
   #     return the sum of the list.
   def sum(list) when is_list(list),
     do: Enum.reduce(list, 0, fn(x, acc) -> x + acc end)
 
   # 3.- Transform [1,[[2],3]] to [9, 4, 1] with and without the pipe operator.
-  def transform_with_pipe do
-    [1, [[2], 3]]
+  def transform_with_pipe(list) do
+    list
     |> List.flatten
     |> Enum.reverse
     |> Enum.map(fn(x) -> x * x end)
   end
 
-  def transform_without_pipe do
-    Enum.map(Enum.reverse(List.flatten([1, [[2], 3]])), fn(x) -> x * x end)
+  def transform_without_pipe(list) do
+    Enum.map(Enum.reverse(List.flatten(list)), fn(x) -> x * x end)
   end
 
   # 4.- Translate crypto:md5("Tales from the Crypt"). from Erlang to Elixir.
-  def translate do
-    :crypto.md5("Tales from the Crupt")
+  def translate(sentence) do
+    :crypto.md5(sentence)
   end
 
   # 6.- Take a look at an IPV4 packet. Try writing a parser for it.
