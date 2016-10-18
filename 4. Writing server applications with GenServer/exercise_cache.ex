@@ -45,7 +45,7 @@ defmodule Chapter4.Exercise.Cache do
 
   def handle_call({:store, key, value}, _from, cache) do
     if Map.has_key?(cache, key) do
-      {:reply, "Key already in use, to update the value use Cache.update/3", cache}
+      {:reply, "Key already in use, to update the value use Cache.update/2", cache}
     else
       new_cache = Map.put(cache, key, value)
       {:reply, "#{key} stored succesfully", new_cache}
